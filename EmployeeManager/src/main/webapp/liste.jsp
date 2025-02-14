@@ -59,7 +59,13 @@
                         <td><%= user.getSalaire() %></td>
                         <td>
                             <a href="./modifier.jsp?id=1"><button type="submit" class="btn btn-primary editBtn">Edit</button></a>
-                            <a href="./delete.jsp?id=1"><button type="submit" class="btn btn-primary deleteBtn">Delete</button></a>
+                            <form action="DeleteUser" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="<%= user.getId() %>" />
+                                <input type="submit" value="Delete" class="btn btn-danger btn-sm"/>
+                            </form>
+<%--                            <a href="./DeleteUser?id=<%= user.getId() %>" onclick="return confirm('Are you sure you want to delete this user?');">--%>
+<%--                                <button type="submit" class="btn btn-primary deleteBtn">Delete</button>--%>
+<%--                            </a>--%>
                         </td>
                     </tr>
                     <%

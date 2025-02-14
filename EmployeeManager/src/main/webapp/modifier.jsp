@@ -14,15 +14,19 @@
     <nav>
         <img src="" alt="">
         <div id="links">
-            <a href="./ajouter.jsp">ajouter</a>
-            <a href="./liste.jsp">liste</a>
+            <form action="/AddUser" method="get">
+                <button type="submit" class="btn btn-primary headerBtn">Ajouter</button>
+            </form>
+            <form action="/ReadUser" method="get">
+                <button type="submit" class="btn btn-primary headerBtn">Liste</button>
+            </form>
         </div>
     </nav>
 </header>
 <main>
     <section>
         <div id="form">
-            <form action="modifierAction.jsp" method="post">
+            <form action="modifierAction.jsp" method="post" id="form1">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputNom">Nom</label>

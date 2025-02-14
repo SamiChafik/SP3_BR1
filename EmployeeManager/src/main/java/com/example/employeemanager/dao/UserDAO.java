@@ -19,6 +19,7 @@ public class UserDAO {
     private Connection connection;
     private static final String INSERT_USER_SQL = "INSERT INTO users (firstName, familyName, email, phoneNumber, post, salaire) VALUES (?, ?, ?, ?, ?, ?)";
     private static final String SELECT_ALL_USERS_SQL = "SELECT * FROM users";
+    private static final String DELETE_USER_SQL = "DELETE FROM user WHERE id = ?";
 
 //    public static void main(String[] args) {
 //        Connection con = null; // Initialize the connection variable
@@ -32,7 +33,7 @@ public class UserDAO {
 //                System.out.println("Database is connected");
 //            }
 //        } catch (SQLException e) {
-//            // Handle any SQL exceptions
+//            // Handle7 any SQL exceptions
 //            System.out.println("Not connected: " + e.getMessage());
 //        } finally {
 //            // Close the connection if it was established
@@ -95,5 +96,19 @@ public class UserDAO {
         }
 
         return users;
+    }
+
+    public void deleteUser(int id) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbmanager", "root", "123456789");
+
+        String query = "DELETE FROM users WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

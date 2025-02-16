@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.example.employeemanager.model.User" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,34 +27,34 @@
 <main>
     <section>
         <div id="form">
-            <form action="modifierAction.jsp" method="post" id="form1">
+            <form action="UpdateUser" method="post" id="form1">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputNom">Nom</label>
-                        <input type="text" class="form-control" id="inputNom" name="nom" placeholder="Nom">
+                        <input type="text" class="form-control" id="inputNom" name="nom" value="${user.familyName}">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputPrenom">Prénom</label>
-                        <input type="text" class="form-control" id="inputPrenom" name="prenom" placeholder="Prénom">
+                        <input type="text" class="form-control" id="inputPrenom" name="prenom" value="${user.firstName}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail">Email</label>
-                    <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email@exemple.com">
+                    <input type="email" class="form-control" id="inputEmail" name="email" value="${user.email}">
                 </div>
                 <div class="form-group">
                     <label for="inputNumero">Numéro de téléphone</label>
-                    <input type="text" class="form-control" id="inputNumero" name="numero" placeholder="0612345678">
+                    <input type="text" class="form-control" id="inputNumero" name="numero" value="${user.phoneNumber}">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-7">
                         <label for="inputPoste">Poste</label>
-                        <input type="text" class="form-control" id="inputPoste" name="poste" placeholder="Poste">
+                        <input type="text" class="form-control" id="inputPoste" name="poste" value="${user.post}">
                     </div>
                     <div class="form-group col-md-5">
                         <label for="inlineFormInputGroup">Salaire</label>
                         <div class="input-group mb-2">
-                            <input type="text" class="form-control" id="inlineFormInputGroup" name="salaire" placeholder="Salaire">
+                            <input type="text" class="form-control" id="inlineFormInputGroup" name="salaire" value="${user.salaire}">
                             <div class="input-group-append">
                                 <div class="input-group-text">DH</div>
                             </div>
